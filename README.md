@@ -15,32 +15,31 @@ The framework allows calling a C++ server function from a C++ client in the same
 
 #### For instance, a function declaration and call:
 #### Declaration:
-`std::list<Data> XYZ(const std::map<std::string, int>& in, std::vector<std::tuple<std::string, int>>& inOut);`
+`std::list<int> XYZ(const std::map<std::string, int>& in, std::vector<std::tuple<std::string, int>>& inOut);`
 <br/>
 #### Call: 
 
 ```
 std::vector<std::tuple<std::string, int>> inOut = { {"A", 1}, {"B", 2} };
-std::list<Data> res = IPC_CALL(XYZ)({ {"C", 3}, {"D", 4} }, inOut)(Ipc);
+std::list<int> res = IPC_CALL(XYZ)({ {"C", 3}, {"D", 4} }, inOut)(Ipc);
 ```
 For comparison, the local call would look like:<br/>
-` std::list<Data> res = XYZ({ {"C", 3}, {"D", 4} }, inOut);`
+` std::list<int> res = XYZ({ {"C", 3}, {"D", 4} }, inOut);`
 <br/><br/>
 
 ### Server: 
-1. On the server, when `bytes` (parameter of the `Ipc` described above) is received from the client, <br/>`IpcCall::Server::Call(bytes)` should be called (implemented in `IpcCallServer.h`).<br/><br/> 
+1. On the server, when `bytes` (parameter of the `Ipc` described above) is received from the client, <br/>`IpcCall::Server::Call(bytes)` should be called and return (`std::vector<uint8_t>`) of this function should be sent back to the client.<br/><br/> 
 2. Every function should be registered via macro `IPC_CALL_REGISTER(f)`.<br/>
 
 #### For instance, the implementation and registration of the function declared in the client example above:
 ```
-// 'in' data is added to 'inOut' and 'in' data is copied to the return.
-std::list<Data> XYZ(const std::map<std::string, int>& in, std::vector<std::tuple<std::string, int>>& inOut) {
-    std::list<Data> ret;
+std::list<int> XYZ(const std::map<std::string, int>& in, std::vector<std::tuple<std::string, int>>& inOut) {
+    std::list<int> ret;
 
-    for (const auto& [key, value] : in) {
+    for (const auto& [key, value]: in) {
         inOut.emplace_back(std::make_tuple(key, value));
 
-        ret.push_back({ key, value });
+        ret.emplace_back(value);
     }
 
     return ret;
