@@ -47,4 +47,7 @@ std::list<int> XYZ(const std::map<std::string, int>& in, std::vector<std::tuple<
 IPC_CALL_REGISTER(XYZ);
 ```
 
+An example of client and server is in [main.cpp](https://github.com/amarmer/IPC-Call/blob/main/Main.cpp)
+
+The framework can be tested on https://wandbox.org/permlink/S9i4utDMTIJTjIaD 
 
