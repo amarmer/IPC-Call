@@ -48,6 +48,8 @@ std::list<int> XYZ(const std::map<std::string, int>& in,
 IPC_CALL_REGISTER(XYZ);
 ```
 
+The framework supports most of STL data structures in [IpcCallData.h](https://github.com/amarmer/IPC-Call/blob/main/IpcCallData.h) and can be extended with custom data.
+
 An example of client and server is in [main.cpp](https://github.com/amarmer/IPC-Call/blob/main/Main.cpp)
 
 The framework can be tested on https://wandbox.org/permlink/S9i4utDMTIJTjIaD 
