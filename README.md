@@ -5,10 +5,10 @@ The framework allows calling a C++ server function from a C++ client in the same
 ### Client: 
 
 1. The framework utilizes an IPC transport function (for instance, implemented via TCP/IP, HTTP(S), etc.), <br/>however, the framework does not implement it.<br/>
-   The function sends to and receives from the server ```std::vector<uint8>```.<br/>
+   The function sends to and receives from the server ```std::vector<uint8>```.<br/>In case of a transport error, this function should throw an exception.<br/>
    Its declaration - `std::vector<uint8> Ipc(const std::vector<uint8>& bytes);`
 
-2. Function declaration that is called on the server is the same as a declaration of a local function -<br/> `Ret f(Par1 par1, Par2 par2, ... ParN parN)`, where all parameters can be `In` or `InOut`.
+3. Function declaration that is called on the server is the same as a declaration of a local function -<br/> `Ret f(Par1 par1, Par2 par2, ... ParN parN)`, where all parameters can be `In` or `InOut`.
    
 4. Function call - `Ret res =  IPC_CALL(f)(arg1, arg2, ...argN)(Ipc)`, <br/>where `Ipc` is IPC transport function described above.<br/>
 
