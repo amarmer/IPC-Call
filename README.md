@@ -28,7 +28,7 @@ For comparison, the local call would look like:<br/>
 <br/><br/>
 
 ### Server: 
-1. On the server, when `bytes` (parameter of the IPC transport function `Ipc` described above) is received from the client, `IpcCall::Server::Call(bytes)` should be called and return (`std::vector<uint8_t>`) of this function should be sent back to the client.<br/><br/> 
+1. On the server, when `bytes` (parameter of the IPC transport function `Ipc` described above) is received from the client, `IpcCall::Server::Call(bytes)` should be called and its return (`std::vector<uint8_t>`) should be sent back to the client.<br/><br/> 
 2. Every function should be registered via macro `IPC_CALL_REGISTER(f)`.<br/>
 
 #### For instance, the implementation and registration of the function declared in the client example above:
