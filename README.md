@@ -32,18 +32,7 @@ For a comparison, the local call would look like:<br/>
 
 #### For instance, the implementation and registration of the function declared in the client example above:
 ```
-std::list<int> XYZ(const std::map<std::string, int>& in,
-                   std::vector<std::tuple<std::string, int>>& inOut) {
-    std::list<int> ret;
-
-    for (const auto& [key, value]: in) {
-        inOut.emplace_back(std::make_tuple(key, value));
-
-        ret.emplace_back(value);
-    }
-
-    return ret;
-}
+std::list<int> XYZ(const std::map<std::string, int>& in, std::vector<std::tuple<std::string, int>>& inOut) { ... }
 IPC_CALL_REGISTER(XYZ);
 ```
 
