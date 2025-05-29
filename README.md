@@ -23,7 +23,7 @@ The framework allows calling a C++ server function from a C++ client in the same
 std::vector<std::tuple<std::string, int>> inOut = { {"A", 1}, {"B", 2} };
 std::list<int> res = IPC_CALL(XYZ)({ {"C", 3}, {"D", 4} }, inOut)(Ipc);
 ```
-For comparison, the local call would look like:<br/>
+For a comparison, the local call would look like:<br/>
 ` std::list<int> res = XYZ({ {"C", 3}, {"D", 4} }, inOut);`
 <br/><br/>
 
