@@ -38,14 +38,14 @@ std::list<Data> XYZ(const std::map<std::string, int>& in, std::vector<std::tuple
 
 //
 // IPC transport needs to implement 'Ipc' function.
-// 'bytes' is data that sent to server, 'return' is data that is received from the server. 
+// 'bytes' is data that is sent to the server, 'return' is data that is received from the server. 
 //
 // The function needs to be passed as the last argument of `IPC_CALL`.
-std::vector<uint8_t> Ipc(const std::vector<uint8_t>& bytes) {
+std::vector<uint8_t> Ipc(const std::vector<uint8_t>& bytes) noexcept(false) {
     // IPC transport on the server needs to call 'IpcCall::Server::Call(bytes)' (implememented in IpcCallServer.h), 
-    // and return of the function needs to be sent back to the client.
+    // and the return of the function needs to be sent back to the client.
     //
-    // For testing, call server directly.
+    // For testing, call the server directly.
     return IpcCall::Server::Call(bytes);
 }
 
