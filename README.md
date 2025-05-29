@@ -4,7 +4,7 @@ The framework allows calling a C++ server function from a C++ client in the same
 
 ### Client: 
 
-1. The framework uses an IPC transport function (for instance TCP/IP, HTTP(S), etc., the framework does not implement it).<br/>
+1. The framework uses an IPC transport function (for instance TCP/IP, HTTP(S), etc., the framework does not implement it).
    The function sends to and receives from the server ```std::vector<uint8>```.<br/>
    Its declaration - `std::vector<uint8> Ipc(const std::vector<uint8>& bytes);`
 
