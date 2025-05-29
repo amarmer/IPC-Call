@@ -42,7 +42,7 @@ std::list<Data> XYZ(const std::map<std::string, int>& in, std::vector<std::tuple
 //
 // The function needs to be passed as the last argument of `IPC_CALL`.
 std::vector<uint8_t> Ipc(const std::vector<uint8_t>& bytes) noexcept(false) {
-    // IPC transport on the server needs to call 'IpcCall::Server::Call(bytes)' (implememented in IpcCallServer.h), 
+    // IPC transport on the server needs to call 'IpcCall::Server::Call(bytes)', 
     // and the return of the function needs to be sent back to the client.
     //
     // For testing, call the server directly.
