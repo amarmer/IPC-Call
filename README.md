@@ -51,5 +51,5 @@ The framework supports most of the STL data structures in [IpcCallData.h](https:
 
 An example of client and server is in [main.cpp](https://github.com/amarmer/IPC-Call/blob/main/Main.cpp)
 
-The framework can be tested on https://wandbox.org/permlink/X1mi8aFS2zqoAW7Q
+The framework can be tested on https://wandbox.org/permlink/c5puwAykpNub5TH0
 
