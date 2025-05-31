@@ -19,6 +19,8 @@ Function call - `Ret res =  IPC_SEND_RECEIVE(f)(arg1, arg2, ...argN)(IpcSync)`, 
 `std::vector<std::tuple<std::string, int>> inOut = { {"A", 1}, {"B", 2} };`<br/>
 `std::list<int> res = IPC_SEND_RECEIVE(XYZ)({ {"C", 3}, {"D", 4} }, inOut)(IpcSync);`
 <br/><br/>
+For a comparison, the local call would look like:<br/>
+`std::list<int> res = XYZ({ {"C", 3}, {"D", 4} }, inOut);`
 
 #### Asynchronous call 
 The asynchronous  IPC transport function sends to the server ```std::vector<uint8>```.<br/>In case of a transport error, this function should throw an exception.<br/>
