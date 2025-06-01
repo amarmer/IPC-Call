@@ -2,6 +2,9 @@
 
 The framework allows calling a C++ server function from a C++ client in the same way as it is called locally.
 
+The primary purpose of the framework is to demonstrate that a function called by the client is executed on the server.<br/> 
+The IPC transport functions and their implementation are placeholders.
+
 ### Client: 
 
 The framework utilizes an IPC transport function (for instance, implemented via TCP/IP, HTTP(S), etc.), <br/>however, the framework does not implement it.<br/>
