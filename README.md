@@ -3,11 +3,9 @@
 The framework allows calling a C++ server function from a C++ client in the same way as it is called locally.
 
 The primary purpose of the framework is to demonstrate that a function called by the client is executed on the server.<br/> 
-The IPC transport functions and their implementation are placeholders.
+The IPC transport (for instance, TCP/IP, HTTP(S), etc.) functions are placeholders and not implemented by the framework.
 
 ### Client: 
-
-The framework utilizes an IPC transport function (for instance, implemented via TCP/IP, HTTP(S), etc.), <br/>however, the framework does not implement it.<br/>
 
 #### Synchronous call 
 The synchronous  IPC transport function sends to and receives from the server ```std::vector<uint8>```.<br/>In case of a transport error, this function should throw an exception.<br/>
